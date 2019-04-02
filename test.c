@@ -13,7 +13,7 @@ int main()
 	memset(a, 0x00, 64);
 	memset(b, 0x00, 64);
 	memset(c, 0x00,64);
-	char* cmd = "ls -la";
+	char* cmd = "ls -Rla";
 	size_t size = 64;
 
 	/* COn -> Memory Safe. Won't send SIGSEGV */
