@@ -24,6 +24,6 @@
 generally, either sCOn or COn are the ones you should use. They both check for the size of the buffer to prevent errors. However, sCOn will end the buffer with a null byte whereas COn won't. CO will cause segfaults on any command that has larger output than the buffer size. 
 
 # Testing
-run `gcc test.c -o test` to compile test file.
+run `gcc example/Segfault.c -o example/Segfault` to compile test file. Then run  `example/Segfault` from the base directory
 
 Test file shows consecuences of each method. Will almost certainly end with a segfault, but no memory leak.
