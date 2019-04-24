@@ -65,3 +65,27 @@ int sCOn(char* restrict cmd, char* restrict buf, size_t bufSize)
 	pclose(p);
 	return 0;
 }
+int COn_f(char* restrict cmd, char* restrict buf, size_t bufSize)
+{
+	FILE *p = popen(cmd, "r");
+	char c = 0x00;
+	if(p==null)
+	{
+		char buffer[256];
+		strerror_r(errno, buffer, 256);
+		printf("ERROR: %s\n", buffer);
+		exit(-1);
+	}
+	size_t len = 0;
+	while((c = fgetc(p))!=EOF)
+	{
+		if(len + 1 == bufSize)
+		{
+			fprintf(stderr, "ERROR: Buffer Size too small for command output.\nExiting with code -1\n");
+			exit(-1);
+		}	
+		len += sprintf(buf + len, "%c", c);
+	}
+	pclose(p);
+	return 0;
+}
