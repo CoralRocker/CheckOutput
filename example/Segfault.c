@@ -8,7 +8,8 @@ int main()
 	size_t stringSize = 64;
 	char *A = (char*)malloc(sizeof(char)*stringSize),
 	     *B = (char*)malloc(sizeof(char)*stringSize),
-	     *C = (char*)malloc(sizeof(char)*stringSize);
+	     *C = (char*)malloc(sizeof(char)*stringSize),
+	     *D = (char*)malloc(sizeof(char)*stringSize);
 	
 	/* Command to run */
 	char* cmd = "ls -la";
@@ -23,8 +24,8 @@ int main()
 	printf("---sCOn(char*,char*,size_t)---\n%s\n", B);
 	free(B);
 
-	/* Test CO(char*, char*) */
-	CO(cmd, C);
+	/* Test COn_f(char*, char*) */
+	COn_f(cmd, C, stringSize);
 	printf("---CO(char*,char*)---\n%s\n", C);
 	free(C);
 }

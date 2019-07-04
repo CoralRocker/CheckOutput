@@ -70,7 +70,7 @@ int COn_f(char* restrict cmd, char* restrict buf, size_t bufSize)
 {
 	FILE *p = popen(cmd, "r");
 	char c = 0x00;
-	if(p==null)
+	if(p==NULL)
 	{
 		char buffer[256];
 		strerror_r(errno, buffer, 256);
